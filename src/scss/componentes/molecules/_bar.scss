@@ -1,0 +1,22 @@
+.bar-card {
+	display: flex;
+	width: 100%;
+	padding-top: 1rem;
+}
+
+.bar-card__number {
+	display: inline-block;
+
+	text-align: center;
+	font-size: .875rem;
+	font-weight: bold;
+	line-height: 1.3125rem;
+
+	width: 100%;
+}
+
+.bar-card__line {
+	height: .25rem;
+	width: 100%;
+}
+
