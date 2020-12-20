@@ -37,6 +37,7 @@
 .input:valid ~ .label {
 	top: -16px;
 	font-size: 12px;
+	font-weight: bold;
 	color: $color-text-normal;
 }
 
