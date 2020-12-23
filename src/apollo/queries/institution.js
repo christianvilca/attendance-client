@@ -11,3 +11,48 @@ export const INSTITUTION_LIST = gql`
 		}
 	}
 `;
+
+export const GET_INSTITUTION = gql`
+	query getInstitutionByid($id: ID!) {
+		getInstitutionByid(id: $id) {
+			id
+			name
+			location
+			alias
+			image
+			demo
+			email
+			qr
+		}
+	}
+`;
+
+export const NEW_INSTITUTION = gql`
+	mutation newInstitution($input: InstitutionInput) {
+		newInstitution(input: $input) {
+			id
+			name
+			location
+			alias
+			image
+			demo
+			email
+			qr
+		}
+	}
+`;
+
+export const UPDATE_INSTITUTION = gql`
+	mutation updateInstitution($input: InstitutionInput) {
+		updateInstitution(input: $input) {
+			id
+			name
+			location
+			alias
+			image
+			demo
+			email
+			qr
+		}
+	}
+`;
