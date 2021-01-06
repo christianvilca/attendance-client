@@ -37,8 +37,8 @@ const webpackConfigGenerator = env => {
     },
     resolve: {
       alias: {
-        Helpers: path.resolve(__dirname, 'src/views-custom/Helpers/'),
-        ApiDropbox: path.resolve(__dirname, 'src/views-custom/Helpers/ApiDropbox/ApiDropbox.js')
+        helpers: path.resolve(__dirname, 'src/helpers/'),
+        apiDropbox: path.resolve(__dirname, 'src/helpers/apiDropbox.js')
       }
     },
     performance: {
