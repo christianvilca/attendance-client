@@ -1,31 +1,20 @@
 import React from 'react';
 import Header from '../Organisms/Header.jsx';
-import InputText from '../Molecules/InputText.jsx'
+import InputText from '../Molecules/InputText.jsx';
+import Institution from './Institution.jsx';
 
 const InstituionNew = (props) => {
-	return (
-		<>
-			<Header
-				title="Institución"
+	const data = {
+		name: '',
+		location: '',
+		alias: '',
+		image: '',
+		demo: '',
+		email: '',
+		qr: ''
+	};
 
-				to1="goBack"
-				icon1="arrow-back"
-				class1="button-header"
-
-				to2="/institution/qr"
-				icon2="qrcode"
-				class2="button-header__color"
-
-				{...props}
-			/>
-
-			<InputText label="Institucion" />
-			<InputText label="Ubicacion" />
-			<InputText label="Alias" />
-			<InputText label="Imagen" />
-			<button>Guardar</button>
-		</>
-	);
+	return <Institution data={data} {...props} />;
 };
 
 export default InstituionNew;
