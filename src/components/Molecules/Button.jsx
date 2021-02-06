@@ -1,14 +1,17 @@
-import React, { Component } from 'react'
-import Icon from '../Atoms/Icon.jsx';
+import React from 'react'
 
-export class Button extends Component {
-  render() {
-    return (
-      <a href="#" className="button">
-        <Icon svg="right" classes="svg-icon" title="Facebook"/><span>Danos like en facebook</span>
-      </a>
-    )
-  }
-}
+//import Icon from '../Atoms/Icon.jsx';
+//<Icon svg="right" classes="svg-icon" title="Facebook"/><span>Danos like en facebook</span>
+
+const Button = ({ className ="", children, ...props }) => {
+  return (
+    <button
+      className={`btn ${className}`}
+			{...props}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default Button
