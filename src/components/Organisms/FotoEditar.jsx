@@ -8,7 +8,7 @@ class FotoEditar extends Component {
 
   state = {
     scale: 1,
-    image: this.props.image
+    imageModal: this.props.imageModal
   }
 
   handleScale = (e) => {
@@ -31,20 +31,17 @@ class FotoEditar extends Component {
 			console.log(this.props)
 
       apiDropbox.uploadFile(canvas, this.props.codigo)
-      /* .then( data => {
-        //console.log('data', data)
 
-
-			}); */
-			apiDropbox.loadFile(this.props.codigo, "foto")
+			apiDropbox.loadFile(this.props.codigo)
 			.then(data => {
 				console.log('data', data)
 
 				/* var div = document.getElementById("foto")
 				div.style.backgroundImage = 'url('+data+')' */
-				var div = document.getElementById("foto1")
 				//div.style.backgroundImage = 'url('+data+')'
-				div.src = data
+				//var div = document.getElementById("foto1")
+				//div.src = data
+				this.props.setImage(data)
 			});
 
       this.props.loadingEditar()
@@ -54,7 +51,7 @@ class FotoEditar extends Component {
   setEditorRef = (editor) => this.editor = editor
 
   render() {
-    const { image } = this.state
+    const { imageModal } = this.state
     return (
       <div className="wrapper-modal">
         <div className="card-modal">
@@ -62,7 +59,7 @@ class FotoEditar extends Component {
             <AvatarEditor
               ref={this.setEditorRef}
               className="avatar-editor"
-              image={image}
+              image={imageModal}
               width={260}
               height={320}
               border={50}
