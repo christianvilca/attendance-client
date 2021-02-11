@@ -72,3 +72,17 @@
 .align-right {
   float: right;
 }
+
+.flex {
+	display: flex;
+}
+
+.flex-reverse {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.content {
+	display: block;
+	width: 100%;
+}
