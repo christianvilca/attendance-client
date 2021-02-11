@@ -94,12 +94,12 @@ class apiDropbox {
 				'.tag': 'overwrite'
 			}
 		});
-		let data = response;
+		//let data = response;
 		//console.log(file)
-		return data;
+		//return data;
   }
 
-  static async loadFile(foto, idFoto) {
+  static async loadFile(foto) {
 		var dbx = DROPBOXJS;
 		let response = await dbx.filesGetTemporaryLink({
 			path: REQUEST_URL + foto + '.png'
