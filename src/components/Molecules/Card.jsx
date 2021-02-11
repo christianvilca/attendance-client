@@ -14,8 +14,8 @@ const Card = (props) => {
 				{/* <div className="card-list__alias" >{props.alias}</div> */}
 			</div>
 			<div className="card-list__block-image">
-				<img src="https://coreui.io/react/demo/assets/img/avatars/6.jpg" className="card-list__image-user" alt="admin@bootstrapmaster.com" />
-				<img src="https://coreui.io/react/demo/assets/img/avatars/6.jpg" className="card-list__image-group" alt="admin@bootstrapmaster.com" />
+				<img src="https://coreui.io/demo/3.4.0/assets/img/avatars/6.jpg" className="card-list__image-user" alt="admin@bootstrapmaster.com" />
+				<img src="https://coreui.io/demo/3.4.0/assets/img/avatars/6.jpg" className="card-list__image-group" alt="admin@bootstrapmaster.com" />
 			</div>
 			{/* <Icon svg={this.props.icon} className="class-svg" title="Facebook" />
 			<Icon svg={this.props.icon} className="class-svg" title="Facebook" /> */}

@@ -30,7 +30,7 @@ class HeaderMain extends Component {
           {/* <Options /> */}
           <div className="main-header__circle">
             <a href="#">
-              <img src="https://coreui.io/react/demo/assets/img/avatars/6.jpg" className="main-header__img-avatar" alt="admin@bootstrapmaster.com" />
+              <img src="https://coreui.io/demo/3.4.0/assets/img/avatars/6.jpg" className="main-header__img-avatar" alt="admin@bootstrapmaster.com" />
                 <span className="main-header__notification right-align">7</span>
               {/* <div className="main-header__notification">7</div> */}
             </a>
