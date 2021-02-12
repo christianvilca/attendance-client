@@ -1,17 +1,22 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-//import Icon from '../Atoms/Icon.jsx';
-//<Icon svg="right" classes="svg-icon" title="Facebook"/><span>Danos like en facebook</span>
+const Button = ({ className = '', children, ...props }) => {
+	let classNames = [ 'btn', className ].filter(Boolean).join(' ').trim();
 
-const Button = ({ className ="", children, ...props }) => {
-  return (
-    <button
-      className={`btn ${className}`}
+	return (
+		<button
+			className={classNames}
 			{...props}
-    >
-      {children}
-    </button>
-  );
+		>
+			{children}
+		</button>
+	);
 };
 
-export default Button
+export default Button;
+
+Button.propTypes = {
+	children: PropTypes.node.isRequired,
+	className: PropTypes.node.isRequired
+};
