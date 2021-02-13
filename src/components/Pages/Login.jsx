@@ -53,13 +53,13 @@ const Login = (props) => {
 
   return (
     <div>
-      <form onSubmit={(e) => authentication(e, validateUser)}>
+      <form onSubmit={(e) => authentication(e, validateUser)} className="form-body" >
         {error && `${error}` }
         {/* <div><TextField label="email" size="small" value={userEmail} onChange={e => setUserEmail(e.target.value)}/></div>
         <div><TextField label="Contraseña"  value={userPassword} onChange={e => setUserPassword(e.target.value)}/></div> */}
 				<InputText label="email" value={userEmail} onChange={e => setUserEmail(e.target.value)}/>
 				<InputText label="Contraseña" value={userPassword} onChange={e => setUserPassword(e.target.value)}/>
-        <input type="submit" value="Iniciar sesion"/>
+        <input type="submit" value="Iniciar sesion" className="center-block button-success" />
       </form>
     </div>
   )
