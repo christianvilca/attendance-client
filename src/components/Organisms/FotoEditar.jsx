@@ -29,23 +29,20 @@ class FotoEditar extends Component {
       const canvas = this.editor.getImageScaledToCanvas().toDataURL();
 			//console.log('canvas', canvas)
 			console.log(this.props)
-
+			this.props.setSpinner(true)
       apiDropbox.uploadFile(canvas, this.props.codigo)
-
-			apiDropbox.loadFile(this.props.codigo)
-			.then(data => {
-				console.log('data', data)
-
-				/* var div = document.getElementById("foto")
-				div.style.backgroundImage = 'url('+data+')' */
-				//div.style.backgroundImage = 'url('+data+')'
-				//var div = document.getElementById("foto1")
-				//div.src = data
-				this.props.setImage(data)
-			});
+			.then(()=>{
+					this.props.setImage('')
+					apiDropbox.loadFile(this.props.codigo)
+				.then(data => {
+					console.log('data', data)
+					this.props.setSpinner(false)
+					this.props.setImage(data)
+				});
+			})
 
       this.props.loadingEditar()
-    //}
+			//}
   }
 
   setEditorRef = (editor) => this.editor = editor
