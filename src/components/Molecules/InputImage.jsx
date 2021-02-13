@@ -2,24 +2,35 @@ import React, { useState, useEffect } from 'react';
 import Icon from '../Atoms/Icon.jsx';
 import InputFiles from 'react-input-files';
 import FotoEditar from '../Organisms/FotoEditar.jsx'
+import Spinner from '../Atoms/Spinner.jsx'
 import Modal from '../Organisms/Modal.jsx';
 import { apiDropbox } from 'helpers';
 
 const InputImage = ({onClick, value, toogleModal, ...props}) => {
 	const [ loadingEditar, setLoadingEditar ] = useState(false);
 	const [ image, setImage ] = useState('');
+	const [ imageModal, setImageModal ] = useState('');
+	const [ spinner, setSpinner ] = useState(false);
+
+	const { codigo } = props
 
 	useEffect(() => {
-    apiDropbox.loadFile(props.codigo, "foto")
-			.then(data => setImage(data) );
-  }, [])
+		setSpinner(true)
+    apiDropbox.loadFile(codigo)
+			.then(data => {
+				setImage(data)
+				setSpinner(false)
+			});
+  }, [codigo])
 
 	const handleLoadingEditar = (event) => {
 		//this.setState({ loadingEditar: false });
 		setLoadingEditar(false)
+		//setSpinner(false)
   }
 
   const handleChange = (files, evt) => {
+		//setSpinner(true)
     //console.log("files",files)
     //console.log("e",evt.target)
     var tgt = evt.target || window.event.srcElement,
@@ -32,7 +43,7 @@ const InputImage = ({onClick, value, toogleModal, ...props}) => {
 				/* console.log("fr.result", fr)
 				console.log("fr.result", fr.result) */
         fr.onload = function () {
-					setImage(fr.result)
+					setImageModal(fr.result)
 					setLoadingEditar(true)
           /* scope.setState({ image: fr.result });
           scope.setState({ loadingEditar: true }); */
@@ -43,16 +54,19 @@ const InputImage = ({onClick, value, toogleModal, ...props}) => {
 		//scope.setState({ loadingEditar: true });
 	}
 
-	const { codigo } = props
-	console.log(props);
-
 	return (
 		<div className="image" onClick={onClick}>
+			{loadingEditar &&
+			<Modal>
+				{(toogleModal) => <FotoEditar loadingEditar={handleLoadingEditar} imageModal={imageModal} codigo={codigo} setImage={setImage} setSpinner={setSpinner} />}
+			</Modal>
+			}
 			<label className="image__label" >Imagen</label>
 			<InputFiles onChange={handleChange} style={{ width: '100%' }} accept="image/png,image/jpg,image/jpeg">
 				{/* <div id="foto"> */}
 				<input name="image"  type="hidden" {...props} />
 				<a href="#" className="image__box">
+					{spinner && <Spinner classes="spinner-container" />}
 					<img id="foto1" loading='lazy' alt="Usuario" src={image} />
 					<div className="image__icon">
 						<Icon svg="image" className="class-svg" title="image" />
@@ -61,11 +75,7 @@ const InputImage = ({onClick, value, toogleModal, ...props}) => {
 				</a>
 				{/* </div> */}
 			</InputFiles>
-			{loadingEditar &&
-			<Modal>
-				{(toogleModal) => <FotoEditar loadingEditar={handleLoadingEditar} image={image} codigo={codigo} setImage={setImage}/>}
-			</Modal>
-			}
+
 		</div>
 	);
 };
