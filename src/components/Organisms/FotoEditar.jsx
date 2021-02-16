@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import AvatarEditor from 'react-avatar-editor'
 import { apiDropbox } from 'helpers';
 
@@ -20,7 +20,7 @@ class FotoEditar extends Component {
 
   handleChange =()=>{
     console.log('handleChange')
-    this.props.loadingEditar()
+    this.props.toogleModal()
   }
 
   onClickSave = () => {
@@ -41,7 +41,7 @@ class FotoEditar extends Component {
 				});
 			})
 
-      this.props.loadingEditar()
+      this.props.toogleModal()
 			//}
   }
 
@@ -65,7 +65,7 @@ class FotoEditar extends Component {
               scale={1.2}
 							rotate={0}
 							//style={{width: '100%', heigth: '100%', }}
-              scale={Number(this.state.scale)}
+              //scale={Number(this.state.scale)}
             />
             <div className="slider-padre">
               <i className="fa fa-photo"></i>

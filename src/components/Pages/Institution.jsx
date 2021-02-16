@@ -10,9 +10,7 @@ import {
 	UPDATE_INSTITUTION
 } from '../../apollo/queries/institution';
 import Header from '../Organisms/Header.jsx';
-import Modal from '../Organisms/Modal.jsx';
 import Icon from '../Atoms/Icon.jsx';
-import InputFiles from 'react-input-files';
 
 const Institution = ({ id, data, history, ...props }) => {
 	const [ values, handleChange ] = useForm(data);

@@ -6,8 +6,8 @@ import Spinner from '../Atoms/Spinner.jsx'
 import Modal from '../Organisms/Modal.jsx';
 import { apiDropbox } from 'helpers';
 
-const InputImage = ({onClick, value, toogleModal, ...props}) => {
-	const [ loadingEditar, setLoadingEditar ] = useState(false);
+const InputImage = ({...props}) => {
+	const [ isOpen, setIsOpen ] = useState(false);
 	const [ image, setImage ] = useState('');
 	const [ imageModal, setImageModal ] = useState('');
 	const [ spinner, setSpinner ] = useState(false);
@@ -23,43 +23,47 @@ const InputImage = ({onClick, value, toogleModal, ...props}) => {
 			});
   }, [codigo])
 
-	const handleLoadingEditar = (event) => {
-		//this.setState({ loadingEditar: false });
-		setLoadingEditar(false)
-		//setSpinner(false)
+	const toogleModal = () => {
+		setIsOpen(!isOpen)
   }
 
-  const handleChange = (files, evt) => {
+  const handleChange = (files) => {
 		//setSpinner(true)
     //console.log("files",files)
     //console.log("e",evt.target)
-    var tgt = evt.target || window.event.srcElement,
-      files = tgt.files;
+    /* var tgt = evt.target || window.event.srcElement,
+      files = tgt.files; */
 
     // FileReader support
-    const scope = this
+    //const scope = this
     if (FileReader && files && files.length) {
 				var fr = new FileReader();
 				/* console.log("fr.result", fr)
 				console.log("fr.result", fr.result) */
         fr.onload = function () {
 					setImageModal(fr.result)
-					setLoadingEditar(true)
+					toogleModal()
           /* scope.setState({ image: fr.result });
-          scope.setState({ loadingEditar: true }); */
-          console.log(fr.result)
+          scope.setState({ isOpen: true }); */
+          //console.log(fr.result)
         }
         fr.readAsDataURL(files[0]);
 		}
-		//scope.setState({ loadingEditar: true });
+		//scope.setState({ isOpen: true });
 	}
 
 	return (
-		<div className="image" onClick={onClick}>
-			{loadingEditar &&
-			<Modal>
-				{(toogleModal) => <FotoEditar loadingEditar={handleLoadingEditar} imageModal={imageModal} codigo={codigo} setImage={setImage} setSpinner={setSpinner} />}
-			</Modal>
+		<div className="image">
+			{isOpen &&
+				<Modal>
+					<FotoEditar
+						toogleModal={toogleModal}
+						imageModal={imageModal}
+						codigo={codigo}
+						setImage={setImage}
+						setSpinner={setSpinner}
+					/>
+				</Modal>
 			}
 			<label className="image__label" >Imagen</label>
 			<InputFiles onChange={handleChange} style={{ width: '100%' }} accept="image/png,image/jpg,image/jpeg">
