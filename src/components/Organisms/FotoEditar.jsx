@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import AvatarEditor from 'react-avatar-editor'
-import { apiDropbox } from 'helpers';
-
 import Button from '../Molecules/Button.jsx'
 
 class FotoEditar extends Component {
@@ -24,25 +22,8 @@ class FotoEditar extends Component {
   }
 
   onClickSave = () => {
-    //if (this.editor) {
-      //const canvas = this.editor.getImage().toDataURL();
-      const canvas = this.editor.getImageScaledToCanvas().toDataURL();
-			//console.log('canvas', canvas)
-			console.log(this.props)
-			this.props.setSpinner(true)
-      apiDropbox.uploadFile(canvas, this.props.codigo)
-			.then(()=>{
-					this.props.setImage('')
-					apiDropbox.loadFile(this.props.codigo)
-				.then(data => {
-					console.log('data', data)
-					this.props.setSpinner(false)
-					this.props.setImage(data)
-				});
-			})
-
-      this.props.toogleModal()
-			//}
+		this.props.setImage(this.editor.getImageScaledToCanvas().toDataURL())
+		this.props.toogleModal()
   }
 
   setEditorRef = (editor) => this.editor = editor
@@ -75,7 +56,7 @@ class FotoEditar extends Component {
             <div className="content align-right">
               {/* <button className="button-secondary" onClick={this.handleChange} >Cancelar</button>
               <button className="button-success" onClick={this.onClickSave} >Guardar</button> */}
-							<Button className="align-right" onClick={this.onClickSave} >Guardar</Button>
+							<Button className="align-right" onClick={this.onClickSave} >Aceptar</Button>
 							<Button className="btn-secondary align-right" onClick={this.handleChange}>Cancelar</Button>
             </div>
           </div>

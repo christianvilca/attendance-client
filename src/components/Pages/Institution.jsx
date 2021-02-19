@@ -11,12 +11,14 @@ import {
 } from '../../apollo/queries/institution';
 import Header from '../Organisms/Header.jsx';
 import Icon from '../Atoms/Icon.jsx';
+import { apiDropbox } from 'helpers';
 
 const Institution = ({ id, data, history, ...props }) => {
 	const [ values, handleChange ] = useForm(data);
 	const [ newInstitution ] = useMutation(NEW_INSTITUTION, {
 		onCompleted: (data) => {
 			console.log(data.newInstitution.id)
+			uploadImage(data.newInstitution.id)
 			history.push('/institutions');
 		},
 		refetchQueries: [ { query: INSTITUTION_LIST, variables: { filter: '', limit: 10 } } ]
@@ -25,7 +27,9 @@ const Institution = ({ id, data, history, ...props }) => {
 		/* 			variables: {
 				input: { id }
 			}, */
-		onCompleted: () => {
+		onCompleted: (data) => {
+			console.log(data)
+			uploadImage(data.updateInstitution.id)
 			history.push('/institutions');
 		},
 		refetchQueries: [
@@ -33,6 +37,10 @@ const Institution = ({ id, data, history, ...props }) => {
 			{ query: GET_INSTITUTION, variables: { id } }
 		]
 	});
+
+	const uploadImage = (id) => {
+    apiDropbox.uploadFile(document.getElementById('foto1').src, id)
+  }
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -68,16 +76,6 @@ const Institution = ({ id, data, history, ...props }) => {
 				<InputText name="location" label="Dirección" value={values.location} onChange={handleChange} />
 				<InputText name="alias" label="Alias" value={values.alias} onChange={handleChange} />
 
-				{/* <Modal
-					onOpen={(toogleModal) => (
-						<InputImage onClick={toogleModal} value={values.image} onChange={handleChange} />
-					)}
-				>
-					{(toogleModal) => <ModalContent toogleModal={toogleModal} />}
-				</Modal> */}
-				{/* <Modal>
-					{(toogleModal) => <InputImage value={values.image} codigo={values.codigo} onChange={handleChange} toogleModal={toogleModal}/>}
-				</Modal> */}
 				<InputImage value={values.image} codigo={values.id} onChange={handleChange} />
 
 				<a href="#" className="align-left button-icon-danger">

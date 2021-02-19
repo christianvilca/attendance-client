@@ -88,14 +88,14 @@ class apiDropbox {
 		var file = dataURLtoFile(canvas, anchor.download);
 
 		let response = await dbx.filesUpload({
-			path: REQUEST_URL + file.name,
+			path: REQUEST_URL + file.name,// codigo +'.png',//
 			contents: file,
 			mode: {
 				'.tag': 'overwrite'
 			}
 		});
 		//let data = response;
-		//console.log(file)
+		console.log(response)
 		//return data;
   }
 

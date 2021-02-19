@@ -28,28 +28,14 @@ const InputImage = ({...props}) => {
   }
 
   const handleChange = (files) => {
-		//setSpinner(true)
-    //console.log("files",files)
-    //console.log("e",evt.target)
-    /* var tgt = evt.target || window.event.srcElement,
-      files = tgt.files; */
-
-    // FileReader support
-    //const scope = this
     if (FileReader && files && files.length) {
 				var fr = new FileReader();
-				/* console.log("fr.result", fr)
-				console.log("fr.result", fr.result) */
         fr.onload = function () {
 					setImageModal(fr.result)
 					toogleModal()
-          /* scope.setState({ image: fr.result });
-          scope.setState({ isOpen: true }); */
-          //console.log(fr.result)
         }
         fr.readAsDataURL(files[0]);
 		}
-		//scope.setState({ isOpen: true });
 	}
 
 	return (
@@ -67,7 +53,6 @@ const InputImage = ({...props}) => {
 			}
 			<label className="image__label" >Imagen</label>
 			<InputFiles onChange={handleChange} style={{ width: '100%' }} accept="image/png,image/jpg,image/jpeg">
-				{/* <div id="foto"> */}
 				<input name="image"  type="hidden" {...props} />
 				<a href="#" className="image__box">
 					{spinner && <Spinner classes="spinner-container" />}
@@ -77,9 +62,7 @@ const InputImage = ({...props}) => {
 						<label className="image__label">Imagen</label>
 					</div>
 				</a>
-				{/* </div> */}
 			</InputFiles>
-
 		</div>
 	);
 };
