@@ -12,7 +12,15 @@ const InputImage = ({...props}) => {
 	const [ imageModal, setImageModal ] = useState('');
 	const [ spinner, setSpinner ] = useState(false);
 
-	const { codigo } = props
+	const { value, id } = props
+
+	let codigo = ''
+
+	if (value === 'true') {
+		codigo = id
+	} else {
+		codigo = 'undefined'
+	}
 
 	useEffect(() => {
 		setSpinner(true)

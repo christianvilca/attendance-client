@@ -15,10 +15,10 @@ import { apiDropbox } from 'helpers';
 
 const Institution = ({ id, data, history, ...props }) => {
 	const [ values, handleChange ] = useForm(data);
+	//const [ image, setImage ] = useState(data.image);
 	const [ newInstitution ] = useMutation(NEW_INSTITUTION, {
 		onCompleted: (data) => {
-			console.log(data.newInstitution.id)
-			uploadImage(data.newInstitution.id)
+			uploadImage(data.newInstitution)
 			history.push('/institutions');
 		},
 		refetchQueries: [ { query: INSTITUTION_LIST, variables: { filter: '', limit: 10 } } ]
@@ -28,8 +28,7 @@ const Institution = ({ id, data, history, ...props }) => {
 				input: { id }
 			}, */
 		onCompleted: (data) => {
-			console.log(data)
-			uploadImage(data.updateInstitution.id)
+			uploadImage(data.updateInstitution)
 			history.push('/institutions');
 		},
 		refetchQueries: [
@@ -38,22 +37,29 @@ const Institution = ({ id, data, history, ...props }) => {
 		]
 	});
 
-	const uploadImage = (id) => {
-    apiDropbox.uploadFile(document.getElementById('foto1').src, id)
+	const uploadImage = ({id, image}) => {
+
+		if (image === 'true') {
+			apiDropbox.uploadFile(document.getElementById('foto1'), id)
+		}
   }
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const values1 = { ...values, demo: true };
-		console.log(values)
+
+		let valuesInput = { ...values, demo: true };
+
+    if (values.image === '' && !document.getElementById('foto1').src.startsWith('https://')) {
+      valuesInput = {...values, image: 'true'}
+    }
+
 		if (data.name === '') {
-			console.log(values1)
 			newInstitution({
-				variables: { input: values1 }
+				variables: { input: valuesInput }
 			});
 		} else {
 			updateInstitution({
-				variables: { input: values }
+				variables: { input: valuesInput }
 			});
 		}
 	};
@@ -76,7 +82,7 @@ const Institution = ({ id, data, history, ...props }) => {
 				<InputText name="location" label="Dirección" value={values.location} onChange={handleChange} />
 				<InputText name="alias" label="Alias" value={values.alias} onChange={handleChange} />
 
-				<InputImage value={values.image} codigo={values.id} onChange={handleChange} />
+				<InputImage value={values.image} id={values.id} onChange={handleChange} />
 
 				<a href="#" className="align-left button-icon-danger">
 					<Icon svg="trash" classes="class-svg" title="trash" />

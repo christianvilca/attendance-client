@@ -84,11 +84,15 @@ class apiDropbox {
 	static async uploadFile(canvas, codigo) {
 		var dbx = DROPBOXJS;
 
-		let anchor = downloadImageFile(canvas, codigo);
-		var file = dataURLtoFile(canvas, anchor.download);
+		let file = ''
+		let name = 'undefined.png'
+
+		let anchor = downloadImageFile(canvas.src, codigo);
+		file = dataURLtoFile(canvas.src, anchor.download);
+		name = file.name
 
 		let response = await dbx.filesUpload({
-			path: REQUEST_URL + file.name,// codigo +'.png',//
+			path: REQUEST_URL + name,// codigo +'.png',//
 			contents: file,
 			mode: {
 				'.tag': 'overwrite'
