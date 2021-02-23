@@ -10,8 +10,8 @@ const ListCard = ({ query, ...props }) => {
 
 	return (
 		<Fragment>
-			{data.getInstitutionList.length !== 0 ? (
-				data.getInstitutionList.map((item) => (
+			{data[Object.keys(data)[0]].length !== 0 ? (
+				data[Object.keys(data)[0]].map((item) => (
 					<Card
 						key={item.id}
 						to={'/institution/' + item.id}
