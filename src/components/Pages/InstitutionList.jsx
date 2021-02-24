@@ -3,7 +3,7 @@ import HeaderMain from '../Organisms/HeaderMain.jsx';
 import Search from '../Molecules/Search.jsx';
 import { INSTITUTION_LIST } from '../../apollo/queries/institution';
 
-const Instituions = () => {
+const InstitutionList = () => {
 	return (
 		<>
 			<HeaderMain title="Instituciones" />
@@ -15,4 +15,4 @@ const Instituions = () => {
 	);
 };
 
-export default Instituions;
+export default InstitutionList;

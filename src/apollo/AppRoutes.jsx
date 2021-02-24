@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from '../components/Pages/Home.jsx';
-import Institutions from '../components/Pages/Institutions.jsx';
+import InstitutionList from '../components/Pages/InstitutionList.jsx';
 import InstitutionNew from '../components/Pages/InstitutionNew.jsx';
 import InstitutionQR from '../components/Pages/InstitutionQR.jsx';
 import InstitutionUpdate from '../components/Pages/InstitutionUpdate.jsx';
@@ -32,7 +32,7 @@ const AppRoutes = () => {
     <Router>
       <Switch>
         <Protected path="/" exact component={ Home } />
-        <Protected path="/institutions" exact component={ Institutions } />
+        <Protected path="/InstitutionList" exact component={ InstitutionList } />
         <Protected path="/institution/new" exact component={ InstitutionNew } />
         <Protected path="/institution/qr" exact component={ InstitutionQR } />
         <Protected path="/institution/:id" exact component={ InstitutionUpdate } />

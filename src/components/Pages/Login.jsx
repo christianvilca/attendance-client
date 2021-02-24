@@ -27,7 +27,7 @@ const authentication = (e, validateUser) => {
 		const access = parseJwt(localStorage.getItem('token'))
 
 		let redirect = "/"
-		if (access.roles.includes("MASTER")) { redirect = "/institutions" } else
+		if (access.roles.includes("MASTER")) { redirect = "/InstitutionList" } else
 		if (access.roles.includes("INSTITUTION")) { redirect = "/managers" } else
 		if (access.roles.includes("MANAGER" )) { redirect = "/catequesis" } else
 		if (access.roles.includes("CATEQUISTA")) { redirect = "/catequistas" } else { redirect = "/asistencia" }
