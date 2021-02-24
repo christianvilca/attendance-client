@@ -48,9 +48,8 @@ const InstitutionDetail = ({ id, data, history, ...props }) => {
 		e.preventDefault();
 
 		let valuesInput = { ...values, demo: true };
-
     if (values.image === '' && !document.getElementById('foto1').src.startsWith('https://')) {
-      valuesInput = {...values, image: 'true'}
+			valuesInput = {...valuesInput, image: 'true'}
     }
 
 		if (data.name === '') {
