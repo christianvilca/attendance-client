@@ -3,7 +3,7 @@ import Card from '../Molecules/Card.jsx';
 import Spinner from '../Atoms/Spinner.jsx';
 import { useQuery } from '@apollo/client';
 
-const ListCard = ({ query, ...props }) => {
+const CardList = ({ query, ...props }) => {
 	const { loading, error, data } = useQuery(query, { ...props });
 	if (loading) return <Spinner classes="spinner-list" />;
 	if (error) return `Error! ${error.message}`;
@@ -28,4 +28,4 @@ const ListCard = ({ query, ...props }) => {
 	);
 };
 
-export default ListCard;
+export default CardList;

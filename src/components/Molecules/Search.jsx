@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Icon from '../Atoms/Icon.jsx';
 import { NavLink } from 'react-router-dom';
-import ListCard from '../Organisms/ListCard.jsx';
+import CardList from '../Organisms/CardList.jsx';
 
 const Search = ({ children, href, ...props }) => {
 	const [ state, setState ] = useState('');
@@ -29,7 +29,7 @@ const Search = ({ children, href, ...props }) => {
 					</div>
 				</div>
 			</div>
-			<ListCard
+			<CardList
 				variables={{
 					filter: state,
 					limit: 10
