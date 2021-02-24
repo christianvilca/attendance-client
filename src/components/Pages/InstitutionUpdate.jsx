@@ -1,5 +1,5 @@
 import React from 'react';
-import Institution from './Institution.jsx';
+import InstitutionDetail from './InstitutionDetail.jsx';
 import { GET_INSTITUTION } from '../../apollo/queries/institution';
 import Query from '../../apollo/Query.jsx';
 
@@ -18,7 +18,7 @@ const InstitutionUpdate = ({ match, ...props }) => {
 			>
 				{({ getInstitutionByid: data }) =>
 					data ? (
-						<Institution id={match.params.id} data={data} {...props}/>
+						<InstitutionDetail id={match.params.id} data={data} {...props}/>
 					) : (
 						<span>No hay registro</span>
 					)}

@@ -32,10 +32,10 @@ const Protected = ({ component: Component, path: Path, ...rest }) => {
 
 	const access = parseJwt(localStorage.getItem('token'));
 
-	const MASTER = [ '/InstitutionList', '/institution/new', '/confirmantes', uri(/^(\/institution\/)/, Path ) ];
-	const INSTITUTION = [ '/InstitutionList', '/instituion' ];
-	const MANAGER = [ '/InstitutionList', '/instituion' ];
-	const CATEQUISTA = [ '/InstitutionList', '/instituion' ];
+	const MASTER = [ '/Institution', '/institution/new', '/confirmantes', uri(/^(\/institution\/)/, Path ) ];
+	const INSTITUTION = [ '/Institution', '/instituion' ];
+	const MANAGER = [ '/Institution', '/instituion' ];
+	const CATEQUISTA = [ '/Institution', '/instituion' ];
 
 	if (
 		(access.roles.includes('MASTER') && MASTER.includes(Path)) ||

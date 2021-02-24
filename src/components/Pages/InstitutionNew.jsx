@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from '../Organisms/Header.jsx';
-import InputText from '../Molecules/InputText.jsx';
-import Institution from './Institution.jsx';
+import InstitutionDetail from './InstitutionDetail.jsx';
 
 const InstituionNew = (props) => {
 	const data = {
@@ -14,7 +12,7 @@ const InstituionNew = (props) => {
 		qr: ''
 	};
 
-	return <Institution data={data} {...props} />;
+	return <InstitutionDetail data={data} {...props} />;
 };
 
 export default InstituionNew;

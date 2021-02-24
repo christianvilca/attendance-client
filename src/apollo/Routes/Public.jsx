@@ -10,7 +10,7 @@ const Public = ({ component: Component, ...rest }) => {
 		const access = parseJwt(localStorage.getItem('token'))
 
 		let redirect = "/"
-		if (access.roles.includes("MASTER")) { redirect = "/InstitutionList" } else
+		if (access.roles.includes("MASTER")) { redirect = "/Institution" } else
 		if (access.roles.includes("INSTITUTION")) { redirect = "/managers" } else
 		if (access.roles.includes("MANAGER" )) { redirect = "/catequesisList" } else
 		if (access.roles.includes("CATEQUISTA")) { redirect = "/catequesis" } else { redirect = "/asistencia" }

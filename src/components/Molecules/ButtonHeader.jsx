@@ -5,7 +5,7 @@ import Icon from '../Atoms/Icon.jsx';
 const ButtonHeader = ({ to, icon, classes, history }) => {
 	const goBack = (e) => {
 		history.goBack();
-		//history.push('/InstitutionList');
+		//history.push('/Institution');
 	};
 
 	const toggle = (e) => {

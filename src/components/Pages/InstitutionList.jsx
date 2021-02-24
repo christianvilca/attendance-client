@@ -9,6 +9,7 @@ const InstitutionList = () => {
 			<HeaderMain title="Instituciones" />
 			<Search
 				href="/institution/new"
+				item="/institution/"
 				query={INSTITUTION_LIST}
 			/>
 		</>
