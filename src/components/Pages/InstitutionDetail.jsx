@@ -19,7 +19,7 @@ const InstitutionDetail = ({ id, data, history, ...props }) => {
 	const [ newInstitution ] = useMutation(NEW_INSTITUTION, {
 		onCompleted: (data) => {
 			uploadImage(data.newInstitution)
-			history.push('/Institution');
+			history.push('/institution');
 		},
 		refetchQueries: [ { query: INSTITUTION_LIST, variables: { filter: '', limit: 10 } } ]
 	});
@@ -29,7 +29,7 @@ const InstitutionDetail = ({ id, data, history, ...props }) => {
 			}, */
 		onCompleted: (data) => {
 			uploadImage(data.updateInstitution)
-			history.push('/Institution');
+			history.push('/institution');
 		},
 		refetchQueries: [
 			{ query: INSTITUTION_LIST, variables: { filter: '', limit: 10 } },
