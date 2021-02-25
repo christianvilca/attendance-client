@@ -7,7 +7,7 @@ const InstituionNew = (props) => {
 		location: '',
 		alias: '',
 		image: '',
-		demo: '',
+		demo: true,
 		email: '',
 		qr: ''
 	};

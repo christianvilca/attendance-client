@@ -64,7 +64,7 @@ const InputImage = ({...props}) => {
 				<input name="image"  type="hidden" {...props} />
 				<a href="#" className="image__box">
 					{spinner && <Spinner classes="spinner-container" />}
-					<img id="foto1" loading='lazy' alt="Usuario" src={image} />
+					<img id="foto" loading='lazy' alt="Usuario" src={image} />
 					<div className="image__icon">
 						<Icon svg="image" className="class-svg" title="image" />
 						<label className="image__label">Imagen</label>

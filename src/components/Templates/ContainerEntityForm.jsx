@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import Header from '../Organisms/Header.jsx';
-import InstitutionForm from '../Pages/InstitutionForm.jsx';
+import EntityForm from '../Pages/EntityForm.jsx';
 
-const ContainerEntityDetail = ({ to, id, data, history, ...props }) => {
+const ContainerEntityForm = ({ children, to, data, history, querys, values, ...props }) => {
 	return (
 		<Fragment>
 			<Header
@@ -16,14 +16,17 @@ const ContainerEntityDetail = ({ to, id, data, history, ...props }) => {
 				history={history}
 				{...props}
 			/>
-			<InstitutionForm
+			<EntityForm
 				to={to}
-				id={id}
 				data={data}
 				history={history}
-			/>
+				querys={querys}
+				values={values}
+			>
+				{ children }
+			</EntityForm>
 		</Fragment>
 	)
 }
 
-export default ContainerEntityDetail
+export default ContainerEntityForm
