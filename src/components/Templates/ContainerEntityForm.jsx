@@ -2,26 +2,26 @@ import React, { Fragment } from 'react'
 import Header from '../Organisms/Header.jsx';
 import EntityForm from '../Pages/EntityForm.jsx';
 
-const ContainerEntityForm = ({ children, to, data, history, querys, values, ...props }) => {
+const ContainerEntityForm = ({ propsHeader, propsForm, children, history, ...props }) => {
 	return (
 		<Fragment>
 			<Header
-				title="Institución"
-				to1="goBack"
-				icon1="arrow-back"
-				class1="button-header"
-				to2="/institution/qr"
-				icon2="qrcode"
-				class2="button-header__color"
+				title={propsHeader.title}
+				to1={propsHeader.to1}
+				icon1={propsHeader.icon1}
+				class1={propsHeader.class1}
+				to2={propsHeader.to2}
+				icon2={propsHeader.icon2}
+				class2={propsHeader.class2}
 				history={history}
 				{...props}
 			/>
 			<EntityForm
-				to={to}
-				data={data}
+				to={propsForm.to}
+				data={propsForm.data}
+				querys={propsForm.querys}
+				values={propsForm.values}
 				history={history}
-				querys={querys}
-				values={values}
 			>
 				{ children }
 			</EntityForm>

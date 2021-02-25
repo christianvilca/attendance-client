@@ -12,6 +12,8 @@ import Icon from '../Atoms/Icon.jsx';
 import { useForm } from '../Atoms/useForm';
 
 const InstitutionDetail = ({ id, data, history, ...props }) => {
+	const [ values, handleChange ] = useForm(data);
+
 	const querys = {
 		new: NEW_INSTITUTION,
 		update: UPDATE_INSTITUTION,
@@ -19,15 +21,28 @@ const InstitutionDetail = ({ id, data, history, ...props }) => {
 		refreshList: { query: INSTITUTION_LIST, variables: { filter: '', limit: 10 } }
 	};
 
-	const [ values, handleChange ] = useForm(data);
+	const propsHeader = {
+		title: "Institución",
+		to1: "goBack",
+		icon1: "arrow-back",
+		class1: "button-header",
+		to2: "/institution/qr",
+		icon2: "qrcode",
+		class2: "button-header__color",
+	}
+
+	const propsForm = {
+		to:"/institution/",
+		data:data,
+		querys:querys,
+		values:values
+	}
 
 	return (
 		<ContainerEntityForm
-			to="/institution/"
-			data={data}
 			history={history}
-			querys={querys}
-			values={values}
+			propsHeader={propsHeader}
+			propsForm={propsForm}
 			{...props}
 		>
 			<InputText name="name" label="Institución" value={values.name} onChange={handleChange} />
