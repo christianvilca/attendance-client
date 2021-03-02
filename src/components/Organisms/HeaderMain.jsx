@@ -23,7 +23,7 @@ class HeaderMain extends Component {
           <div className="left-align">
             <ButtonHeader to="toggle" icon="burger" classes="main-header__button" />
           </div>
-          <Menu />
+          <Menu type="left" />
           <div className="main-header__title">
             { this.props.title }
           </div>
@@ -35,6 +35,7 @@ class HeaderMain extends Component {
               {/* <div className="main-header__notification">7</div> */}
             </a>
           </div>
+					<Menu type="right" />
         </div>
       </header>
     )

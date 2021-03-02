@@ -1,78 +1,117 @@
 {
-  "usuarios": [
-    {
-      "administrador": [
-        {
-          "name": "REGISTROS",
-          "align": "left"
-        },
-        {
-          "name": "Asistencia",
-          "url": "/asistencia",
-          "icon": "clock"
-        },
-        {
-          "name": "Confirmante",
-          "url": "/confirmantes",
-          "icon": "male"
-        },
-        {
-          "name": "REPORTES",
-          "align": "left"
-        },
-        {
-          "name": "General",
-          "url": "/reportes",
-          "icon": "chart"
-        },
-        {
-          "name": "Individual",
-          "url": "/reporte",
-          "icon": "chart"
-        },
-        {
-          "name": "Carnet",
-          "url": "/carnet",
-          "icon": "card"
-        }
-      ]
-    },
-    {
-      "catequista": [
-        {
-          "name": "REGISTROS",
-          "align": "left"
-        },
-        {
-          "name": "Asistencia",
-          "url": "/asistencia",
-          "icon": "clock"
-        },
-        {
-          "name": "Confirmante",
-          "url": "/confirmantes",
-          "icon": "male"
-        },
-        {
-          "name": "REPORTES",
-          "align": "left"
-        },
-        {
-          "name": "General",
-          "url": "/reporte",
-          "icon": "chart"
-        },
-        {
-          "name": "Individual",
-          "url": "/reporte",
-          "icon": "chart"
-        },
-        {
-          "name": "Carnet",
-          "url": "/carnet",
-          "icon": "card"
-        }
-      ]
-    }
-  ]
+	"usuarios": [
+		{
+			"administrador": [
+				{
+					"left": [
+						{
+							"name": "REGISTROS",
+							"align": "left"
+						},
+						{
+							"name": "Asistencia",
+							"url": "/asistencia",
+							"icon": "clock"
+						},
+						{
+							"name": "Confirmante",
+							"url": "/confirmante",
+							"icon": "male"
+						},
+						{
+							"name": "REPORTES",
+							"align": "left"
+						},
+						{
+							"name": "General",
+							"url": "/reporte",
+							"icon": "chart"
+						},
+						{
+							"name": "Individual",
+							"url": "/reporte",
+							"icon": "chart"
+						},
+						{
+							"name": "Carnet",
+							"url": "/carnet",
+							"icon": "card"
+						}
+					],
+					"right": [
+						{
+							"name": "Configuración",
+							"align": "center"
+						},
+						{
+							"name": "Catequesis",
+							"url": "/catequesis",
+							"icon": "clock"
+						},
+						{
+							"name": "Catequistas",
+							"url": "/catequista",
+							"icon": "male"
+						},
+						{
+							"name": "Grupos",
+							"url": "/grupo",
+							"icon": "male"
+						},
+						{
+							"name": "Cuanta",
+							"align": "center"
+						},
+						{
+							"name": "Perfil",
+							"url": "/perfil",
+							"icon": "chart"
+						},
+						{
+							"name": "Cerrar Sesion",
+							"url": "/cerrar",
+							"icon": "chart"
+						}
+					]
+				}
+			]
+		},
+		{
+			"catequista": [
+				{
+					"name": "REGISTROS",
+					"align": "left"
+				},
+				{
+					"name": "Asistencia",
+					"url": "/asistencia",
+					"icon": "clock"
+				},
+				{
+					"name": "Confirmante",
+					"url": "/confirmantes",
+					"icon": "male"
+				},
+				{
+					"name": "REPORTES",
+					"align": "left"
+				},
+				{
+					"name": "General",
+					"url": "/reporte",
+					"icon": "chart"
+				},
+				{
+					"name": "Individual",
+					"url": "/reporte",
+					"icon": "chart"
+				},
+				{
+					"name": "Carnet",
+					"url": "/carnet",
+					"icon": "card"
+				}
+			]
+		}
+	]
 }
