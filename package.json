@@ -48,6 +48,8 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.0",
     "autoprefixer": "^9.4.7",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
