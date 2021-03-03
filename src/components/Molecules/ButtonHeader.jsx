@@ -2,13 +2,14 @@ import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import Icon from '../Atoms/Icon.jsx';
 
+
 const ButtonHeader = ({ to, icon, classes, history }) => {
-	const goBack = (e) => {
+	const goBack = () => {
 		history.goBack();
 		//history.push('/institution');
 	};
 
-	const toggle = (e) => {
+	const toggle = () => {
 		const nav = document.getElementById('main-nav');
 		nav.classList.toggle('show');
 	};

@@ -46,31 +46,31 @@
 						{
 							"name": "Catequesis",
 							"url": "/catequesis",
-							"icon": "clock"
+							"icon": "book-reader"
 						},
 						{
 							"name": "Catequistas",
 							"url": "/catequista",
-							"icon": "male"
+							"icon": "group-2"
 						},
 						{
 							"name": "Grupos",
 							"url": "/grupo",
-							"icon": "male"
+							"icon": "group"
 						},
 						{
-							"name": "Cuanta",
+							"name": "Cuenta",
 							"align": "center"
 						},
 						{
 							"name": "Perfil",
 							"url": "/perfil",
-							"icon": "chart"
+							"icon": "user-1"
 						},
 						{
 							"name": "Cerrar Sesion",
 							"url": "/cerrar",
-							"icon": "chart"
+							"icon": "lock"
 						}
 					]
 				}
