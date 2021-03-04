@@ -1,0 +1,19 @@
+.container-detail {
+	margin: 1rem;
+}
+
+.container-detail__qr {
+	display: flex;
+	justify-content: center;
+	border: 1px solid $color-border-form;
+	padding: 1rem;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.container-detail__text {
+	& input {
+		text-align: center;
+	}
+}
+
