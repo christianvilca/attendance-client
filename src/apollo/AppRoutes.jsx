@@ -34,7 +34,7 @@ const AppRoutes = () => {
         <Protected path="/" exact component={ Home } />
         <Protected path="/institution" exact component={ Institution } />
         <Protected path="/institution/new" exact component={ InstitutionNew } />
-        <Protected path="/institution/qr" exact component={ InstitutionQR } />
+        <Protected path="/institution/qr/:id" exact component={ InstitutionQR } />
         <Protected path="/institution/:id" exact component={ InstitutionUpdate } />
 
         <Protected path="/confirmantes" exact component={ Confirmantes } />

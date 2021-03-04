@@ -26,7 +26,7 @@ const InstitutionDetail = ({ id, data, history, ...props }) => {
 		to1: "goBack",
 		icon1: "arrow-back",
 		class1: "button-header",
-		to2: "/institution/qr",
+		to2: "/institution/qr/" + values.id,
 		icon2: "qrcode",
 		class2: "button-header__color",
 	}

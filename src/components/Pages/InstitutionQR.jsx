@@ -1,22 +1,29 @@
-import React from 'react'
-import Header from '../Organisms/Header.jsx';
+import React from 'react';
+import ContainerDetail from '../Templates/ContainerDetail.jsx';
+import QRCode  from 'qrcode.react'
 
-const InstitutionQR = (props) => {
+const InstitutionQR = ({match, ...props}) => {
+	const propsHeader = {
+		title: 'Codigo de Institución',
+		to1: 'goBack',
+		icon1: 'arrow-back',
+		class1: 'button-header'
+	};
+
 	return (
-		<>
-			<Header
-				title="Codigo de Institución"
+		<ContainerDetail propsHeader={propsHeader} {...props}>
+			<div className="container-detail" >
+				<div className="container-detail__qr" >
+					<QRCode renderAs="svg" value={match.params.id} size={256} />
+				</div>
+				<div className="container-detail__text" >
 
-				to1="goBack"
-				icon1="arrow-back"
-				class1="button-header"
+				</div>
 
-				{...props}
-			/>
-			Codigo de Institución
-		</>
-	)
-}
+			</div>
 
-export default InstitutionQR
+		</ContainerDetail>
+	);
+};
 
+export default InstitutionQR;
