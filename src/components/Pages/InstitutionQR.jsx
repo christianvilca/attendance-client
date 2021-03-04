@@ -28,7 +28,7 @@ const InstitutionQR = ({ match, ...props }) => {
 	return (
 		<ContainerDetail propsHeader={propsHeader} {...props}>
 			<div className="container-detail">
-				<div className="container-detail__qr">
+				<div className="container-detail__qr border">
 					<QRCode renderAs="svg" value={match.params.id} size={256} />
 				</div>
 				<div className="container-detail__text">
