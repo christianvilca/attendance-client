@@ -6,7 +6,7 @@ import menuItems from '../../menu1.json';
 const Menu = ({id, type, className}) => {
 	const handleClick = () => {
 		const nav = document.getElementById({id});
-		nav.classList.toggle('show');
+		nav?.classList?.toggle('show');
 	};
 
 	return (
