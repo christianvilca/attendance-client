@@ -12,7 +12,7 @@ const Tabs = ({ id, title, icon, checked, onChange, children }) => {
 				checked={checked}
 				onChange={onChange}
 			/>
-			<label htmlFor={id}>
+			<label htmlFor={id} className="label-tab" >
 				<div className="menu-item__icon">
 					<Icon svg={icon} classes="class-svg" title="Facebook" />
 				</div>
