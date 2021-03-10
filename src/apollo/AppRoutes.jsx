@@ -13,8 +13,10 @@ import Group from '../components/Pages/Group.jsx';
 import Attendance from '../components/Pages/Attendance.jsx';
 import Catequistas from '../components/Pages/Catequistas.jsx';
 import Catequista from '../components/Pages/Catequista.jsx';
-import CatequesisList from '../components/Pages/CatequesisList.jsx';
 import Catequesis from '../components/Pages/Catequesis.jsx';
+import CatequesisNew from '../components/Pages/CatequesisNew.jsx';
+import CatequesisQR from '../components/Pages/CatequesisQR.jsx';
+import CatequesisUpdate from '../components/Pages/CatequesisUpdate.jsx';
 import CatequesisJoin from '../components/Pages/CatequesisJoin.jsx';
 import CatequesisCopySecurity from '../components/Pages/CatequesisCopySecurity.jsx';
 import ReportAll from '../components/Pages/ReportAll.jsx';
@@ -48,8 +50,10 @@ const AppRoutes = () => {
         <Protected path="/catequistas" exact component={ Catequistas } />
         <Protected path="/catequistas/:id" exact component={ Catequista } />
 
-        <Protected path="/catequesis" exact component={ CatequesisList } />
-        <Protected path="/catequesis/:id" exact component={ Catequesis } />
+        <Protected path="/catequesis" exact component={ Catequesis } />
+        <Protected path="/catequesis/new" exact component={ CatequesisNew } />
+        <Protected path="/catequesis/qr/:id" exact component={ CatequesisQR } />
+        <Protected path="/catequesis/:id" exact component={ CatequesisUpdate } />
         <Protected path="/catequesis-join" exact component={ CatequesisJoin } />
         <Protected path="/catequesis-copy-security" exact component={ CatequesisCopySecurity } />
 

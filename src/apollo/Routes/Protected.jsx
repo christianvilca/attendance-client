@@ -7,10 +7,10 @@ import Query from '../Query.jsx';
 import { USUARIO_ACTUAL } from '../queries';
 
 const uri = (regex, path) => {
-	return (regex.exec(path)) ? path : ""
+	return regex.exec(path) ? path : '';
 	/* const found = path.match(regex)
 	return (found) ? found[0] : "" */
-}
+};
 
 const Protected = ({ component: Component, path: Path, ...rest }) => {
 	const userLogged = localStorage.getItem('token');
@@ -32,7 +32,16 @@ const Protected = ({ component: Component, path: Path, ...rest }) => {
 
 	const access = parseJwt(localStorage.getItem('token'));
 
-	const MASTER = [ '/institution', '/institution/new', '/confirmantes', '/asistencia', uri(/^(\/institution\/)/, Path ) ];
+	const MASTER = [
+		'/institution',
+		'/institution/new',
+		uri(/^(\/institution\/)/, Path),
+		'/catequesis',
+		'/catequesis/new',
+		uri(/^(\/catequesis\/)/, Path),
+		'/confirmantes',
+		'/asistencia',
+	];
 	const INSTITUTION = [ '/institution', '/instituion' ];
 	const MANAGER = [ '/institution', '/instituion' ];
 	const CATEQUISTA = [ '/institution', '/instituion' ];
