@@ -115,6 +115,20 @@
 		border-bottom: 1px solid transparent;
 		border-left: 1px solid transparent;
 	}
+
+	& .main-menu__item {
+		background: $color-bg-card;
+
+		& svg {
+			fill: $color-text-desactivado;
+		}
+	}
+
+	& .menu-item__text {
+		font-size: var(--normal-font-size);
+		color: $color-bg-dark;
+		line-height: 100%;
+	}
 }
 
 .main-nav-right__container {
